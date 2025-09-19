@@ -2,6 +2,8 @@ package re.forestier.edu;
 
 //import org.junit.Before;
 import org.junit.jupiter.api.*;
+
+import re.forestier.edu.rpg.UpdatePlayer;
 import re.forestier.edu.rpg.player;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -93,6 +95,22 @@ public class UnitTests {
     @DisplayName("Test de RetriveLevel lorsque xp = 0")
     void testRetriveLevel() {
     	assertEquals(p.retrieveLevel(),1);        
+    }
+
+    @Test
+    @DisplayName("Test d'ajout Xp")
+    void testAddXp() {
+    	UpdatePlayer up = new UpdatePlayer();
+    	up.addXp(p,20);
+    	assertEquals(p.getXp(),20);
+    }
+
+    @Test
+    @DisplayName("Test d'ajout Xp impossible")
+    void testAddSameXp() {
+    	UpdatePlayer up = new UpdatePlayer();
+    	up.addXp(p,20);
+    	assertEquals(up.addXp(p,40),true);
     }
 
 }
