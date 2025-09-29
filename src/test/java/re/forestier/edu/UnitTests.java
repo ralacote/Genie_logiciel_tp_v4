@@ -98,6 +98,23 @@ public class UnitTests {
     }
 
     @Test
+    @DisplayName("Test de RetriveLevel lorsque xp entre 27 et 57")
+    void testRetriveLevel4() {
+    	UpdatePlayer up = new UpdatePlayer();
+    	up.addXp(p,42);
+    	assertEquals(p.retrieveLevel(),3);        
+    }
+    
+    @Test
+    @DisplayName("Test de RetriveLevel lorsque xp superieur à 111")
+    void testRetriveLevel5() {
+    	UpdatePlayer up = new UpdatePlayer();
+    	up.addXp(p,666);
+    	assertEquals(p.retrieveLevel(),5);        
+    }
+
+
+    @Test
     @DisplayName("Test d'ajout Xp")
     void testAddXp() {
     	UpdatePlayer up = new UpdatePlayer();
@@ -106,11 +123,100 @@ public class UnitTests {
     }
 
     @Test
-    @DisplayName("Test d'ajout Xp impossible")
-    void testAddSameXp() {
+    @DisplayName("Test d'ajout Xp possible")
+    void testAddXpTrue() {
     	UpdatePlayer up = new UpdatePlayer();
     	up.addXp(p,20);
     	assertEquals(up.addXp(p,40),true);
     }
+
+    @Test
+    @DisplayName("Test d'ajout Xp impossible")
+    void testAddXpFalse() {
+    	UpdatePlayer up = new UpdatePlayer();
+    	up.addXp(p,20);
+    	assertEquals(up.addXp(p,0),false);
+    }
+    
+    @Test
+    @DisplayName("Test de maj de Fin de tour pour dwarf et holy elixir")
+    void testFinTourDwarfHolyElixir() {
+		player pl = new player("Florian", "Grognak le barbare", "DWARF", 100, new ArrayList<>());		
+    	UpdatePlayer up = new UpdatePlayer();
+    	pl.currenthealthpoints = 10;
+    	pl.healthpoints = 40;
+    	pl.inventory.add("Holy Elixir");
+    	up.majFinDeTour(pl);
+    	assertEquals(pl.currenthealthpoints,12);
+    }
+    
+    @Test
+    @DisplayName("Test de maj de Fin de tour pour dwarf sans holy elixir")
+    void testFinTourDwarf() {
+		player pl = new player("Florian", "Grognak le barbare", "DWARF", 100, new ArrayList<>());		
+    	UpdatePlayer up = new UpdatePlayer();
+    	pl.currenthealthpoints = 10;
+    	pl.healthpoints = 40;
+    	up.majFinDeTour(pl);
+    	assertEquals(pl.currenthealthpoints,11);
+    }
+
+    
+    @Test
+    @DisplayName("Test de maj de Fin de tour pour adventurer")
+    void testFinTourAdventurer() {
+		player pl = new player("Florian", "Grognak le barbare", "ADVENTURER", 100, new ArrayList<>());		
+    	UpdatePlayer up = new UpdatePlayer();
+    	pl.currenthealthpoints = 10;
+    	pl.healthpoints = 40;
+    	pl.inventory.add("Holy Elixir");
+    	up.majFinDeTour(pl);
+    	assertEquals(pl.currenthealthpoints,11);
+    }
+    
+    @Test
+    @DisplayName("Test de maj de Fin de tour pour arcer avec arc magique")
+    void testFinTourArcherMagicBow() {
+		player pl = new player("Florian", "Grognak le barbare", "ARCHER", 100, new ArrayList<>());		
+    	UpdatePlayer up = new UpdatePlayer();
+    	pl.currenthealthpoints = 10;
+    	pl.healthpoints = 40;
+    	pl.inventory.add("Magic Bow");
+    	up.majFinDeTour(pl);
+    	assertEquals(pl.currenthealthpoints,11);
+    }
+    
+    @Test
+    @DisplayName("Test de maj de Fin de tour pour archer sans arc magique")
+    void testFinTourArcher() {
+		player pl = new player("Florian", "Grognak le barbare", "ARCHER", 100, new ArrayList<>());		
+    	UpdatePlayer up = new UpdatePlayer();
+    	pl.currenthealthpoints = 10;
+    	pl.healthpoints = 40;
+    	up.majFinDeTour(pl);
+    	assertEquals(pl.currenthealthpoints,11);
+    }
+    
+    @Test
+    @DisplayName("Test de maj de Fin de tour pour rétablir currenthealthpoints")
+    void testFinTourTooManyHealth() {
+		player pl = new player("Florian", "Grognak le barbare", "ARCHER", 100, new ArrayList<>());		
+    	UpdatePlayer up = new UpdatePlayer();
+    	pl.currenthealthpoints = 15;
+    	pl.healthpoints = 10;
+    	up.majFinDeTour(pl);
+    	assertEquals(pl.currenthealthpoints,10);
+    }    
+
+    
+    @Test
+    @DisplayName("Test de maj de Fin de tour lorsque vie == 0")
+    void testFinTourHealth0() {
+    	UpdatePlayer up = new UpdatePlayer();
+    	p.currenthealthpoints = 0;
+    	up.majFinDeTour(p);
+    	assertEquals(p.currenthealthpoints,0);
+    }
+
 
 }
