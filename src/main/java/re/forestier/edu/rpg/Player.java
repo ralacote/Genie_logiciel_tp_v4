@@ -19,13 +19,13 @@ public class Player {
     public HashMap<String, Integer> abilities;
     public ArrayList<String> inventory;
     
-    public Player(String playerName, String avatar_name, String avatarClass, int money, ArrayList<String> inventory) {
+    public Player(String playerName, String avatarName, String avatarClass, int money, ArrayList<String> inventory) {
         if (!avatarClass.equals("ARCHER") && !avatarClass.equals("ADVENTURER") && !avatarClass.equals("DWARF") ) {
             return;
         }
 
         this.playerName = playerName;
-        avatarName = avatar_name;
+        this.avatarName = avatarName;
         this.avatarClass = avatarClass;
         this.money = Integer.valueOf(money);
         this.inventory = inventory;
