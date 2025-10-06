@@ -8,4 +8,3 @@ Capacités :
    INT : 2
 
 Inventaire :
-   Elendil

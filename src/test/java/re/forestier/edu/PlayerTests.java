@@ -97,16 +97,14 @@ public class PlayerTests {
     @Test
     @DisplayName("Test de RetriveLevel lorsque xp entre 27 et 57")
     void testRetriveLevel4() {
-    	UpdatePlayer up = new UpdatePlayer();
-    	up.addXp(p,42);
+    	UpdatePlayer.addXp(p,42);
     	assertEquals(p.retrieveLevel(),3);        
     }
     
     @Test
     @DisplayName("Test de RetriveLevel lorsque xp superieur à 111")
     void testRetriveLevel5() {
-    	UpdatePlayer up = new UpdatePlayer();
-    	up.addXp(p,666);
+    	UpdatePlayer.addXp(p,666);
     	assertEquals(p.retrieveLevel(),5);        
     }
 
