@@ -11,15 +11,14 @@ public class Player {
     public Integer money;
     private Float realMoney;
 
-
     public int level;
     public int healthPoints;
     public int currentHealthPoints;
     protected int xp;
 
-
     public HashMap<String, Integer> abilities;
     public ArrayList<String> inventory;
+    
     public Player(String playerName, String avatar_name, String avatarClass, int money, ArrayList<String> inventory) {
         if (!avatarClass.equals("ARCHER") && !avatarClass.equals("ADVENTURER") && !avatarClass.equals("DWARF") ) {
             return;
@@ -31,6 +30,10 @@ public class Player {
         this.money = Integer.valueOf(money);
         this.inventory = inventory;
         this.abilities = UpdatePlayer.abilitiesPerTypeAndLevel().get(avatarClass).get(1);
+    }
+    
+    public int getXp() {
+        return this.xp;
     }
 
     public String getAvatarClass () {
@@ -58,17 +61,17 @@ public class Player {
         if (xp < levels.get(2)) {
             return 1;
         }
-        else if (xp < levels.get(3)) {return 2;
+        else if (xp < levels.get(3)) {
+        	return 2;
         }
         if (xp < levels.get(4)) {
             return 3;
         }
-        if (xp < levels.get(5)) return 4;
+        if (xp < levels.get(5)) {
+        	return 4;
+        }
         return 5;
     }
 
-    public int getXp() {
-        return this.xp;
-    }
 
 }
