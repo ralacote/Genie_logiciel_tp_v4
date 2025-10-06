@@ -104,14 +104,14 @@ public class UpdatePLayerTests {
     }    
 
     
-    /*@Test
+    @Test
     @DisplayName("Test de maj de Fin de tour lorsque vie == 0")
     void testFinTourHealth0() {
 		player pl = new player("Florian", "Grognak le barbare", "ARCHER", 100, new ArrayList<>());		
     	pl.currenthealthpoints = 0;
     	UpdatePlayer.majFinDeTour(pl);
     	assertEquals(0,pl.currenthealthpoints);
-    }*/
+    }
 
 
 }
