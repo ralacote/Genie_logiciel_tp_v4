@@ -4,18 +4,18 @@ package re.forestier.edu;
 import org.junit.jupiter.api.*;
 
 import re.forestier.edu.rpg.UpdatePlayer;
-import re.forestier.edu.rpg.player;
+import re.forestier.edu.rpg.Player;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 
 public class UpdatePLayerTests {
 	
-	private player p;
+	private Player p;
 	
 	@BeforeEach
 	public void setUp() {
-		p = new player("Florian", "Grognak le barbare", "ADVENTURER", 100, new ArrayList<>());		
+		p = new Player("Florian", "Grognak le barbare", "ADVENTURER", 100, new ArrayList<>());		
 	}
 	
     @Test
@@ -42,7 +42,7 @@ public class UpdatePLayerTests {
     @Test
     @DisplayName("Test de maj de Fin de tour pour dwarf et holy elixir")
     void testFinTourDwarfHolyElixir() {
-		player pl = new player("Florian", "Grognak le barbare", "DWARF", 100, new ArrayList<>());		
+		Player pl = new Player("Florian", "Grognak le barbare", "DWARF", 100, new ArrayList<>());		
     	pl.currenthealthpoints = 10;
     	pl.healthpoints = 40;
     	pl.inventory.add("Holy Elixir");
@@ -53,7 +53,7 @@ public class UpdatePLayerTests {
     @Test
     @DisplayName("Test de maj de Fin de tour pour dwarf sans holy elixir")
     void testFinTourDwarf() {
-		player pl = new player("Florian", "Grognak le barbare", "DWARF", 100, new ArrayList<>());		
+		Player pl = new Player("Florian", "Grognak le barbare", "DWARF", 100, new ArrayList<>());		
     	pl.currenthealthpoints = 10;
     	pl.healthpoints = 40;
     	UpdatePlayer.majFinDeTour(pl);
@@ -64,7 +64,7 @@ public class UpdatePLayerTests {
     @Test
     @DisplayName("Test de maj de Fin de tour pour adventurer")
     void testFinTourAdventurer() {
-		player pl = new player("Florian", "Grognak le barbare", "ADVENTURER", 100, new ArrayList<>());		
+		Player pl = new Player("Florian", "Grognak le barbare", "ADVENTURER", 100, new ArrayList<>());		
     	pl.currenthealthpoints = 10;
     	pl.healthpoints = 40;
     	pl.inventory.add("Holy Elixir");
@@ -75,7 +75,7 @@ public class UpdatePLayerTests {
     @Test
     @DisplayName("Test de maj de Fin de tour pour arcer avec arc magique")
     void testFinTourArcherMagicBow() {
-		player pl = new player("Florian", "Grognak le barbare", "ARCHER", 100, new ArrayList<>());		
+		Player pl = new Player("Florian", "Grognak le barbare", "ARCHER", 100, new ArrayList<>());		
     	pl.currenthealthpoints = 10;
     	pl.healthpoints = 40;
     	pl.inventory.add("Magic Bow");
@@ -86,7 +86,7 @@ public class UpdatePLayerTests {
     @Test
     @DisplayName("Test de maj de Fin de tour pour archer sans arc magique")
     void testFinTourArcher() {
-		player pl = new player("Florian", "Grognak le barbare", "ARCHER", 100, new ArrayList<>());		
+		Player pl = new Player("Florian", "Grognak le barbare", "ARCHER", 100, new ArrayList<>());		
     	pl.currenthealthpoints = 10;
     	pl.healthpoints = 40;
     	UpdatePlayer.majFinDeTour(pl);
@@ -96,7 +96,7 @@ public class UpdatePLayerTests {
     @Test
     @DisplayName("Test de maj de Fin de tour pour rétablir currenthealthpoints")
     void testFinTourTooManyHealth() {
-		player pl = new player("Florian", "Grognak le barbare", "ARCHER", 100, new ArrayList<>());		
+		Player pl = new Player("Florian", "Grognak le barbare", "ARCHER", 100, new ArrayList<>());		
     	pl.currenthealthpoints = 15;
     	pl.healthpoints = 10;
     	UpdatePlayer.majFinDeTour(pl);
@@ -107,7 +107,7 @@ public class UpdatePLayerTests {
     @Test
     @DisplayName("Test de maj de Fin de tour lorsque vie == 0")
     void testFinTourHealth0() {
-		player pl = new player("Florian", "Grognak le barbare", "ARCHER", 100, new ArrayList<>());		
+		Player pl = new Player("Florian", "Grognak le barbare", "ARCHER", 100, new ArrayList<>());		
     	pl.currenthealthpoints = 0;
     	UpdatePlayer.majFinDeTour(pl);
     	assertEquals(0,pl.currenthealthpoints);

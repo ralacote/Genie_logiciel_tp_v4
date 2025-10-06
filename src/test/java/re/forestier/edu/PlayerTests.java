@@ -4,7 +4,7 @@ package re.forestier.edu;
 import org.junit.jupiter.api.*;
 
 import re.forestier.edu.rpg.UpdatePlayer;
-import re.forestier.edu.rpg.player;
+import re.forestier.edu.rpg.Player;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -15,11 +15,11 @@ import java.util.ArrayList;
 
 public class PlayerTests {
 
-	private player p;
+	private Player p;
 	
 	@BeforeEach
 	public void setUp() {
-		p = new player("Florian", "Grognak le barbare", "ADVENTURER", 100, new ArrayList<>());		
+		p = new Player("Florian", "Grognak le barbare", "ADVENTURER", 100, new ArrayList<>());		
 	}
 	
     @Test
@@ -31,7 +31,7 @@ public class PlayerTests {
     @Test
     @DisplayName("Impossible to have negative money")
     void testNegativeMoney() {
-        player p = new player("Florian", "Grognak le barbare", "ADVENTURER", 100, new ArrayList<>());
+        Player p = new Player("Florian", "Grognak le barbare", "ADVENTURER", 100, new ArrayList<>());
 
         try {
             p.removeMoney(200);
@@ -72,7 +72,7 @@ public class PlayerTests {
     @Test
     @DisplayName("Impossible de créer un personnage avec une mauvaise classe")
     void testCreatePlayerBadClass() {
-        player p = new player("Florian", "Grognak le barbare", "RIDER", 100, new ArrayList<>());
+        Player p = new Player("Florian", "Grognak le barbare", "RIDER", 100, new ArrayList<>());
         assertEquals(p.playerName,null);        
     }
 
