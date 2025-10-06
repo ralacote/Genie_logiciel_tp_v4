@@ -41,8 +41,7 @@ public class Player {
         if (money - amount < 0) {
             throw new IllegalArgumentException("Player can't have a negative money!");
         }
-
-        money = Integer.parseInt(money.toString()) - amount;
+        money -= amount;
     }
     public void addMoney(int amount) {
         money += amount;
