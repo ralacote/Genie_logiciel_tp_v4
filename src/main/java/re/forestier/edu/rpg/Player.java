@@ -9,7 +9,6 @@ public class Player {
     private String avatarClass;
 
     public Integer money;
-    private Float realMoney;
 
     public int level;
     public int healthPoints;
