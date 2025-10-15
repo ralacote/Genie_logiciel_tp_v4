@@ -6,7 +6,7 @@ import java.util.HashMap;
 public class Player {
     public String playerName;
     public String avatarName;
-    private String avatarClass;
+    private TypePersonnage avatarClass;
 
     public Integer money;
 
@@ -18,25 +18,20 @@ public class Player {
     public HashMap<String, Integer> abilities;
     public ArrayList<String> inventory;
     
-    public Player(String playerName, String avatarName, String avatarClass, int money, ArrayList<String> inventory) {
-    	try {
-    		TypePersonnage.valueOf(avatarClass);
-            this.playerName = playerName;
-            this.avatarName = avatarName;
-            this.avatarClass = avatarClass;
-            this.money = money;
-            this.inventory = inventory;
-            this.abilities = UpdatePlayer.abilitiesPerTypeAndLevel().get(avatarClass).get(1);
-    	} catch(IllegalArgumentException e) {
-    		return;
-    	}
+    public Player(String playerName, String avatarName, TypePersonnage avatarClass, int money, ArrayList<String> inventory) {
+    	this.playerName = playerName;
+        this.avatarName = avatarName;
+        this.avatarClass = avatarClass;
+        this.money = money;
+        this.inventory = inventory;
+        this.abilities = UpdatePlayer.abilitiesPerTypeAndLevel().get(avatarClass).get(1);
     }
     
     public int getXp() {
         return this.xp;
     }
 
-    public String getAvatarClass () {
+    public TypePersonnage getAvatarClass () {
         return avatarClass;
     }
 

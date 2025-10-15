@@ -5,6 +5,8 @@ import org.junit.jupiter.api.*;
 
 import re.forestier.edu.rpg.UpdatePlayer;
 import re.forestier.edu.rpg.Player;
+import re.forestier.edu.rpg.TypePersonnage;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -19,7 +21,7 @@ public class PlayerTests {
 	
 	@BeforeEach
 	public void setUp() {
-		p = new Player("Florian", "Grognak le barbare", "ADVENTURER", 100, new ArrayList<>());		
+		p = new Player("Florian", "Grognak le barbare", TypePersonnage.ADVENTURER, 100, new ArrayList<>());		
 	}
 	
     @Test
@@ -31,7 +33,7 @@ public class PlayerTests {
     @Test
     @DisplayName("Impossible to have negative money")
     void testNegativeMoney() {
-        Player p = new Player("Florian", "Grognak le barbare", "ADVENTURER", 100, new ArrayList<>());
+        Player p = new Player("Florian", "Grognak le barbare", TypePersonnage.ADVENTURER, 100, new ArrayList<>());
 
         try {
             p.removeMoney(200);
@@ -69,12 +71,12 @@ public class PlayerTests {
         assertEquals(p.money,50);
     }
 
-    @Test
+    /*@Test
     @DisplayName("Impossible de créer un personnage avec une mauvaise classe")
     void testCreatePlayerBadClass() {
-        Player p = new Player("Florian", "Grognak le barbare", "RIDER", 100, new ArrayList<>());
+        Player p = new Player("Florian", "Grognak le barbare", RIDER, 100, new ArrayList<>());
         assertEquals(p.playerName,null);        
-    }
+    }*/
 
     @Test
     @DisplayName("Récupération de la classe")
