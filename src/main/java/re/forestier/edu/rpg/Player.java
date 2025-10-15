@@ -19,16 +19,17 @@ public class Player {
     public ArrayList<String> inventory;
     
     public Player(String playerName, String avatarName, String avatarClass, int money, ArrayList<String> inventory) {
-        if (!avatarClass.equals("ARCHER") && !avatarClass.equals("ADVENTURER") && !avatarClass.equals("DWARF") ) {
-            return;
-        }
-
-        this.playerName = playerName;
-        this.avatarName = avatarName;
-        this.avatarClass = avatarClass;
-        this.money = Integer.valueOf(money);
-        this.inventory = inventory;
-        this.abilities = UpdatePlayer.abilitiesPerTypeAndLevel().get(avatarClass).get(1);
+    	try {
+    		TypePersonnage.valueOf(avatarClass);
+            this.playerName = playerName;
+            this.avatarName = avatarName;
+            this.avatarClass = avatarClass;
+            this.money = money;
+            this.inventory = inventory;
+            this.abilities = UpdatePlayer.abilitiesPerTypeAndLevel().get(avatarClass).get(1);
+    	} catch(IllegalArgumentException e) {
+    		return;
+    	}
     }
     
     public int getXp() {
