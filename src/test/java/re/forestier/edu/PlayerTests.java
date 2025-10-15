@@ -98,6 +98,7 @@ public class PlayerTests {
     @DisplayName("Test de RetriveLevel lorsque xp entre 27 et 57")
     void testRetriveLevel4() {
     	UpdatePlayer.addXp(p,42);
+    	System.out.print(p.retrieveLevel());
     	assertEquals(p.retrieveLevel(),3);        
     }
     
