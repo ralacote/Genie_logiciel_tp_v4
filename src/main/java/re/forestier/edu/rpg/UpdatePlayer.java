@@ -138,26 +138,27 @@ public class UpdatePlayer {
             return;
         }
         else {
-        	if(player.getAvatarClass() == TypePersonnage.ADVENTURER) {
-                player.currentHealthPoints += 1;
-                if(player.retrieveLevel() >= 3) {
+        	switch(player.getAvatarClass()) {
+        		case TypePersonnage.ADVENTURER:
                     player.currentHealthPoints += 1;
-                }
-                return;
-        	} 
-            if(player.getAvatarClass() == TypePersonnage.DWARF) {
-                player.currentHealthPoints+=1;
-            	if(player.inventory.contains("Holy Elixir")) {
-            		player.currentHealthPoints+=1;
-                }
-                return;
-            }    
-            if(player.getAvatarClass() == TypePersonnage.ARCHER) {
-            	player.currentHealthPoints+=1;
-            	if(player.inventory.contains("Magic Bow")) {
-            		player.currentHealthPoints+=player.currentHealthPoints/8-1;
-                }
-            }
+                    if (player.retrieveLevel() >= 3) {
+                        player.currentHealthPoints += 1;
+                    }
+                    return;
+        		case TypePersonnage.DWARF:
+                    player.currentHealthPoints += 1;
+                	if(player.inventory.contains("Holy Elixir")) {
+                		player.currentHealthPoints += 1;
+                    }
+                    return;
+        		case TypePersonnage.ARCHER:
+                	player.currentHealthPoints +=1 ;
+                	if(player.inventory.contains("Magic Bow")) {
+                		player.currentHealthPoints += player.currentHealthPoints/8-1;
+                    }
+                	return;
+        	}
+
         } 
     }
 }
