@@ -72,7 +72,29 @@ public class PersonnagesAbilites {
 
         Personnage dwarf = new Personnage(TypePersonnage.DWARF, new ArrayList<Level>(Arrays.asList(d1,d2,d3,d4,d5)));
         
-        lesPersonnages = new ArrayList<>(Arrays.asList(adventurer,archer,dwarf));
+        Level g1 = new Level(1);
+        g1.AjouteNiveau("ALC", 1);
+        g1.AjouteNiveau("INT", 2);
+        g1.AjouteNiveau("ATK", 2);
+        
+        Level g2 = new Level(2);
+        g2.AjouteNiveau("ATK", 3);
+        g2.AjouteNiveau("ALC", 4);
+
+        Level g3 = new Level(3);
+        g3.AjouteNiveau("VIS", 1);
+
+        Level g4 = new Level(4);
+        g4.AjouteNiveau("DEF", 1);
+
+        Level g5 = new Level(5);
+        g5.AjouteNiveau("DEF", 2);
+        g5.AjouteNiveau("ATK", 4);
+
+        Personnage goblin = new Personnage(TypePersonnage.GOBLIN, new ArrayList<Level>(Arrays.asList(g1,g2,g3,g4,g5)));
+
+        
+        lesPersonnages = new ArrayList<>(Arrays.asList(adventurer,archer,dwarf,goblin));
 	}
 	
 	public HashMap<String, Integer> trouveCaracteristique(TypePersonnage type,int level) {
