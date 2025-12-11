@@ -16,9 +16,9 @@ public class Player {
     protected int xp;
 
     public HashMap<String, Integer> abilities;
-    public ArrayList<String> inventory;
+    public ArrayList<Item> inventory;
     
-    public Player(String playerName, String avatarName, TypePersonnage avatarClass, int money, ArrayList<String> inventory) {
+    public Player(String playerName, String avatarName, TypePersonnage avatarClass, int money, ArrayList<Item> inventory) {
     	this.playerName = playerName;
         this.avatarName = avatarName;
         this.avatarClass = avatarClass;
@@ -34,6 +34,18 @@ public class Player {
 
     public TypePersonnage getAvatarClass () {
         return avatarClass;
+    }
+    
+    public void sell(String item) {
+    	int i = 0;
+    	for(Item itemToSell : inventory){
+    		if(itemToSell.getName() == item) {
+    			money = money + itemToSell.getValue();
+    			inventory.remove(i);
+    			return;
+    		}
+    		i++;
+    	}
     }
 
     public void removeMoney(int amount) throws IllegalArgumentException {

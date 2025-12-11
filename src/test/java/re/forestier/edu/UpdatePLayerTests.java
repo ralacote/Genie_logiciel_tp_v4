@@ -5,6 +5,7 @@ import org.junit.jupiter.api.*;
 
 import re.forestier.edu.rpg.UpdatePlayer;
 import re.forestier.edu.rpg.Player;
+import re.forestier.edu.rpg.Item;
 import re.forestier.edu.rpg.TypePersonnage;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -47,7 +48,7 @@ public class UpdatePLayerTests {
 		Player pl = new Player("Florian", "Grognak le barbare", TypePersonnage.DWARF, 100, new ArrayList<>());		
     	pl.currentHealthPoints = 10;
     	pl.healthPoints = 40;
-    	pl.inventory.add("Holy Elixir");
+    	pl.inventory.add(new Item("Holy Elixir","A"));
     	UpdatePlayer.majPdvFinTour(pl);
     	assertEquals(pl.currentHealthPoints,12);
     }
@@ -68,7 +69,7 @@ public class UpdatePLayerTests {
 		Player pl = new Player("Florian", "Grognak le barbare", TypePersonnage.ADVENTURER, 100, new ArrayList<>());		
     	pl.currentHealthPoints = 10;
     	pl.healthPoints = 40;
-    	pl.inventory.add("Holy Elixir");
+    	pl.inventory.add(new Item("Holy Elixir","A"));
     	UpdatePlayer.majPdvFinTour(pl);
     	System.out.print(pl.currentHealthPoints);
     	assertEquals(pl.currentHealthPoints,11);
@@ -80,7 +81,7 @@ public class UpdatePLayerTests {
 		Player pl = new Player("Florian", "Grognak le barbare", TypePersonnage.ARCHER, 100, new ArrayList<>());		
     	pl.currentHealthPoints = 10;
     	pl.healthPoints = 40;
-    	pl.inventory.add("Magic Bow");
+    	pl.inventory.add(new Item("Magic Bow","A"));
     	UpdatePlayer.majPdvFinTour(pl);
     	assertEquals(pl.currentHealthPoints,11);
     }

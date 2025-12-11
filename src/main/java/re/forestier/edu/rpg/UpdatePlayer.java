@@ -20,7 +20,7 @@ public class UpdatePlayer {
         if (xp != 0) {
             player.xp += xp;
             Random random = new Random();
-            player.inventory.add(objectList[random.nextInt(objectList.length)].getNom());
+            player.inventory.add(objectList[random.nextInt(objectList.length)]);
             PersonnagesAbilites p = new PersonnagesAbilites();
             HashMap<String, Integer> abilities = p.trouveCaracteristique(player.getAvatarClass(),player.retrieveLevel());
             
@@ -52,15 +52,17 @@ public class UpdatePlayer {
                     return;
         		case DWARF:
                     player.currentHealthPoints += 1;
-                	if(player.inventory.contains("Holy Elixir")) {
+                	if(player.inventory.stream().anyMatch(itemName -> "Holy Elixir".equals(itemName.getName()))) {
                 		player.currentHealthPoints += 1;
                     }
                     return;
         		case ARCHER:
                 	player.currentHealthPoints += 1 ;
-                	if(player.inventory.contains("Magic Bow")) {
+                	if(player.inventory.stream().anyMatch(itemName -> "Magic Bow".equals(itemName.getName()))) {
                 		player.currentHealthPoints += player.currentHealthPoints/8-1;
                     }
+                	return;
+                default:
                 	return;
         	}
 

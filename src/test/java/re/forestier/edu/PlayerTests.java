@@ -6,6 +6,8 @@ import org.junit.jupiter.api.*;
 import re.forestier.edu.rpg.UpdatePlayer;
 import re.forestier.edu.rpg.Player;
 import re.forestier.edu.rpg.TypePersonnage;
+import re.forestier.edu.rpg.Item;
+
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -110,6 +112,15 @@ public class PlayerTests {
     	UpdatePlayer.addXp(p,666);
     	assertEquals(p.retrieveLevel(),5);        
     }
+    
+    @Test
+    @DisplayName("Test de la vente d'un item")
+    void testSellItem() {
+    	p.inventory.add(new Item("Elendil","Rien",42,50));
+    	p.sell("Elendil");
+    	assertEquals(p.money,150);        
+    }
+
 
 
 }

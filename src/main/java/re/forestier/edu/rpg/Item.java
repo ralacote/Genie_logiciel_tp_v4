@@ -4,7 +4,7 @@ public class Item {
 	private String name;
 	private String effect;
 	private float weight;
-	private float value;
+	private Integer value;
 
 	
 	public Item(String nom,String effet) {
@@ -12,18 +12,18 @@ public class Item {
 		this.effect = effet;
 	}
 	
-	public Item(String nom,String effet,float weight,float value) {
+	public Item(String nom,String effet,float weight,int value) {
 		this(nom,effet);
 		this.weight = weight;
 		this.value = value;
 	}
 
 	
-	public String getNom() {
+	public String getName() {
 		return this.name;
 	}
 	
-	public String getEffet() {
+	public String getEffect() {
 		return this.effect;
 	}
 	
@@ -31,7 +31,7 @@ public class Item {
 		return this.weight;
 	}
 
-	public float getValue() {
+	public int getValue() {
 		return this.value;
 	}
 
