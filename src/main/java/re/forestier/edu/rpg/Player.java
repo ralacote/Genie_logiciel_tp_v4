@@ -18,6 +18,9 @@ public class Player {
     public HashMap<String, Integer> abilities;
     public ArrayList<Item> inventory;
     
+    private float maximalWeight = 100;
+
+    
     public Player(String playerName, String avatarName, TypePersonnage avatarClass, int money, ArrayList<Item> inventory) {
     	this.playerName = playerName;
         this.avatarName = avatarName;
@@ -26,6 +29,10 @@ public class Player {
         this.inventory = inventory;
         PersonnagesAbilites p = new PersonnagesAbilites();
         this.abilities = p.trouveCaracteristique(avatarClass,1);
+    }
+    
+    public float getMaximalWeight() {
+    	return maximalWeight;
     }
     
     public int getXp() {
@@ -45,6 +52,20 @@ public class Player {
     			return;
     		}
     		i++;
+    	}
+    }
+    
+    private float getInventoryWeight() {
+    	float total = 0;
+    	for(Item item : inventory) {
+    		total += item.getWeight();
+    	}
+    	return total;
+    }
+    
+    public void addItem(Item item) {
+    	if(item.getWeight() + getInventoryWeight() < getMaximalWeight()) {
+        	inventory.add(item);    		
     	}
     }
 

@@ -3,8 +3,8 @@ package re.forestier.edu.rpg;
 public class Item {
 	private String name;
 	private String effect;
-	private float weight;
-	private Integer value;
+	private float weight = 0;
+	private Integer value = 0;
 
 	
 	public Item(String nom,String effet) {

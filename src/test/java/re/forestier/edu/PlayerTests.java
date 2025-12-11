@@ -116,9 +116,25 @@ public class PlayerTests {
     @Test
     @DisplayName("Test de la vente d'un item")
     void testSellItem() {
-    	p.inventory.add(new Item("Elendil","Rien",42,50));
+    	p.inventory.add(new Item("Elendil","Rien",0,50));
     	p.sell("Elendil");
     	assertEquals(p.money,150);        
+    }
+    
+    @Test
+    @DisplayName("L'ajout d'un item doit fonctionner lorsque le poids est suffisament léger")
+    void testAddLightItem() {
+    	p.addItem(new Item("Elendil","Rien",50,0));
+    	p.addItem(new Item("Cochon d'inde","Rien",42,0));
+    	assertEquals(p.inventory.size(),2);        
+    }
+
+    @Test
+    @DisplayName("L'ajout d'un item ne doit pas fonctionner lorsque le poids est trop lourd")
+    void testAddHeavyItem() {
+    	p.addItem(new Item("Elendil","Rien",50,0));
+    	p.addItem(new Item("Rhinocéros enervé","Rien",67,0));
+    	assertEquals(p.inventory.size(),1);        
     }
 
 
