@@ -81,7 +81,7 @@ public class PlayerTests {
     @Test
     @DisplayName("Récupération de la classe")
     void testGetClass() {
-    	assertEquals(p.getAvatarClass(),"ADVENTURER");        
+    	assertEquals(p.getAvatarClass(),TypePersonnage.ADVENTURER);        
     }
 
     @Test

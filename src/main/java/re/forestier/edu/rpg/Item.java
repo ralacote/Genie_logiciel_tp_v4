@@ -1,10 +1,10 @@
 package re.forestier.edu.rpg;
 
-public class Objet {
+public class Item {
 	private String nom;
 	private String effet;
 	
-	public Objet(String nom,String effet) {
+	public Item(String nom,String effet) {
 		this.nom = nom;
 		this.effet = effet;
 	}

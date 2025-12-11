@@ -24,7 +24,8 @@ public class Player {
         this.avatarClass = avatarClass;
         this.money = money;
         this.inventory = inventory;
-        this.abilities = UpdatePlayer.abilitiesPerTypeAndLevel().get(avatarClass).get(1);
+        PersonnagesAbilites p = new PersonnagesAbilites();
+        this.abilities = p.trouveCaracteristique(avatarClass,1);
     }
     
     public int getXp() {
@@ -68,6 +69,5 @@ public class Player {
         }
         return levelMax;
     }
-
 
 }

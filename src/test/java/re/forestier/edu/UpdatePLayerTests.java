@@ -61,7 +61,6 @@ public class UpdatePLayerTests {
     	UpdatePlayer.majPdvFinTour(pl);
     	assertEquals(pl.currentHealthPoints,11);
     }
-
     
     @Test
     @DisplayName("Test de maj de Fin de tour pour adventurer")

@@ -17,7 +17,7 @@ public class GlobalTest {
     void testAffichageBase() {
         Player player = new Player("Florian", "Gnognak le Barbare", TypePersonnage.ADVENTURER, 200, new ArrayList<>());
     	UpdatePlayer.addXp(player,20);
-    	player.retrieveLevel();
+    	//player.retrieveLevel();
 
     	player.inventory = new ArrayList<>(java.util.Arrays.asList("Elendil"));
 
