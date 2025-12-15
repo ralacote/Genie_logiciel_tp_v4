@@ -18,6 +18,18 @@ public class Affichage {
     }
 
 	public static String afficherJoueurMarkdown(Player player) {
-		return null;
+        final String[] finalString = {"# Joueur " + player.avatarName + " joué par " + player.playerName};
+        finalString[0] += "\nNiveau : " + player.retrieveLevel() + " *(XP totale : " + player.xp + ")*";
+        finalString[0] += "\n\n## Capacités :";
+        player.abilities.forEach((name, level) -> {
+            finalString[0] += "\n* " + name + " : " + level;
+        });
+        finalString[0] += "\n\n## Inventaire :";
+        player.inventory.forEach(item -> {
+            finalString[0] += "\n* " + item.getName();
+        });
+    
+        return finalString[0];
+
 	}
 }
