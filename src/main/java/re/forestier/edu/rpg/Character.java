@@ -3,11 +3,11 @@ package re.forestier.edu.rpg;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Personnage {
+public class Character {
 	public ArrayList<Level> niveaux;
-	public TypePersonnage type;
+	public CharacterType type;
 	
-	public Personnage(TypePersonnage type,ArrayList<Level> niveaux) {
+	public Character(CharacterType type,ArrayList<Level> niveaux) {
 		this.type = type;
 		this.niveaux = niveaux;
 	}

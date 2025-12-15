@@ -6,7 +6,7 @@ import java.util.HashMap;
 public class Player {
     public String playerName;
     public String avatarName;
-    private TypePersonnage avatarClass;
+    private CharacterType avatarClass;
 
     public Integer money;
 
@@ -21,13 +21,13 @@ public class Player {
     private float maximalWeight = 100;
 
     
-    public Player(String playerName, String avatarName, TypePersonnage avatarClass, int money, ArrayList<Item> inventory) {
+    public Player(String playerName, String avatarName, CharacterType avatarClass, int money, ArrayList<Item> inventory) {
     	this.playerName = playerName;
         this.avatarName = avatarName;
         this.avatarClass = avatarClass;
         this.money = money;
         this.inventory = inventory;
-        PersonnagesAbilites p = new PersonnagesAbilites();
+        CharachterAbilites p = new CharachterAbilites();
         this.abilities = p.trouveCaracteristique(avatarClass,1);
     }
     
@@ -39,7 +39,7 @@ public class Player {
         return this.xp;
     }
 
-    public TypePersonnage getAvatarClass () {
+    public CharacterType getAvatarClass () {
         return avatarClass;
     }
     

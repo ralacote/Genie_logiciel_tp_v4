@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
-public class PersonnagesAbilites {
-	public ArrayList<Personnage> lesPersonnages;
+public class CharachterAbilites {
+	public ArrayList<Character> lesPersonnages;
 	
-	public PersonnagesAbilites() {
+	public CharachterAbilites() {
         Level n1 = new Level(1);
         n1.AjouteNiveau("INT", 1);
         n1.AjouteNiveau("DEF", 1);
@@ -29,7 +29,7 @@ public class PersonnagesAbilites {
         n5.AjouteNiveau("VIS", 1);
         n5.AjouteNiveau("DEF", 4);
         
-        Personnage adventurer = new Personnage(TypePersonnage.ADVENTURER, new ArrayList<Level>(Arrays.asList(n1,n2,n3,n4,n5)));
+        Character adventurer = new Character(CharacterType.ADVENTURER, new ArrayList<Level>(Arrays.asList(n1,n2,n3,n4,n5)));
         
         Level r1 = new Level(1);
         r1.AjouteNiveau("INT", 1);
@@ -50,7 +50,7 @@ public class PersonnagesAbilites {
         Level r5 = new Level(5);
         r5.AjouteNiveau("ATK", 4);
 
-        Personnage archer = new Personnage(TypePersonnage.ARCHER, new ArrayList<Level>(Arrays.asList(r1,r2,r3,r4,r5)));
+        Character archer = new Character(CharacterType.ARCHER, new ArrayList<Level>(Arrays.asList(r1,r2,r3,r4,r5)));
 
         Level d1 = new Level(1);
         d1.AjouteNiveau("ALC", 4);
@@ -70,7 +70,7 @@ public class PersonnagesAbilites {
         Level d5 = new Level(5);
         d5.AjouteNiveau("CHA", 1);
 
-        Personnage dwarf = new Personnage(TypePersonnage.DWARF, new ArrayList<Level>(Arrays.asList(d1,d2,d3,d4,d5)));
+        Character dwarf = new Character(CharacterType.DWARF, new ArrayList<Level>(Arrays.asList(d1,d2,d3,d4,d5)));
         
         Level g1 = new Level(1);
         g1.AjouteNiveau("ALC", 1);
@@ -91,15 +91,15 @@ public class PersonnagesAbilites {
         g5.AjouteNiveau("DEF", 2);
         g5.AjouteNiveau("ATK", 4);
 
-        Personnage goblin = new Personnage(TypePersonnage.GOBLIN, new ArrayList<Level>(Arrays.asList(g1,g2,g3,g4,g5)));
+        Character goblin = new Character(CharacterType.GOBLIN, new ArrayList<Level>(Arrays.asList(g1,g2,g3,g4,g5)));
 
         
         lesPersonnages = new ArrayList<>(Arrays.asList(adventurer,archer,dwarf,goblin));
 	}
 	
-	public HashMap<String, Integer> trouveCaracteristique(TypePersonnage type,int level) {
+	public HashMap<String, Integer> trouveCaracteristique(CharacterType type,int level) {
 		
-		for (Personnage p : lesPersonnages) {
+		for (Character p : lesPersonnages) {
 			if(p.type == type) {
 				return p.trouveCaracteristique(level);
 			}

@@ -5,7 +5,7 @@ import org.junit.jupiter.api.*;
 
 import re.forestier.edu.rpg.UpdatePlayer;
 import re.forestier.edu.rpg.Player;
-import re.forestier.edu.rpg.TypePersonnage;
+import re.forestier.edu.rpg.CharacterType;
 import re.forestier.edu.rpg.Item;
 
 
@@ -23,7 +23,7 @@ public class PlayerTests {
 	
 	@BeforeEach
 	public void setUp() {
-		p = new Player("Florian", "Grognak le barbare", TypePersonnage.ADVENTURER, 100, new ArrayList<>());		
+		p = new Player("Florian", "Grognak le barbare", CharacterType.ADVENTURER, 100, new ArrayList<>());		
 	}
 	
     @Test
@@ -35,7 +35,7 @@ public class PlayerTests {
     @Test
     @DisplayName("Impossible to have negative money")
     void testNegativeMoney() {
-        Player p = new Player("Florian", "Grognak le barbare", TypePersonnage.ADVENTURER, 100, new ArrayList<>());
+        Player p = new Player("Florian", "Grognak le barbare", CharacterType.ADVENTURER, 100, new ArrayList<>());
 
         try {
             p.removeMoney(200);
@@ -83,7 +83,7 @@ public class PlayerTests {
     @Test
     @DisplayName("Récupération de la classe")
     void testGetClass() {
-    	assertEquals(p.getAvatarClass(),TypePersonnage.ADVENTURER);        
+    	assertEquals(p.getAvatarClass(),CharacterType.ADVENTURER);        
     }
 
     @Test

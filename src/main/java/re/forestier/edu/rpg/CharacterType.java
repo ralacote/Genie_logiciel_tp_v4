@@ -1,6 +1,6 @@
 package re.forestier.edu.rpg;
 
-public enum TypePersonnage {
+public enum CharacterType {
 	ARCHER,
 	ADVENTURER,
 	DWARF,

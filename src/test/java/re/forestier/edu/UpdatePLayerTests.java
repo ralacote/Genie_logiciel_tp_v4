@@ -6,7 +6,7 @@ import org.junit.jupiter.api.*;
 import re.forestier.edu.rpg.UpdatePlayer;
 import re.forestier.edu.rpg.Player;
 import re.forestier.edu.rpg.Item;
-import re.forestier.edu.rpg.TypePersonnage;
+import re.forestier.edu.rpg.CharacterType;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -18,7 +18,7 @@ public class UpdatePLayerTests {
 	
 	@BeforeEach
 	public void setUp() {
-		p = new Player("Florian", "Grognak le barbare", TypePersonnage.ADVENTURER, 100, new ArrayList<>());		
+		p = new Player("Florian", "Grognak le barbare", CharacterType.ADVENTURER, 100, new ArrayList<>());		
 	}
 	
     @Test
@@ -45,7 +45,7 @@ public class UpdatePLayerTests {
     @Test
     @DisplayName("Test de maj de Fin de tour pour dwarf et holy elixir")
     void testFinTourDwarfHolyElixir() {
-		Player pl = new Player("Florian", "Grognak le barbare", TypePersonnage.DWARF, 100, new ArrayList<>());		
+		Player pl = new Player("Florian", "Grognak le barbare", CharacterType.DWARF, 100, new ArrayList<>());		
     	pl.currentHealthPoints = 10;
     	pl.healthPoints = 40;
     	pl.inventory.add(new Item("Holy Elixir","A"));
@@ -56,7 +56,7 @@ public class UpdatePLayerTests {
     @Test
     @DisplayName("Test de maj de Fin de tour pour dwarf sans holy elixir")
     void testFinTourDwarf() {
-		Player pl = new Player("Florian", "Grognak le barbare", TypePersonnage.DWARF, 100, new ArrayList<>());		
+		Player pl = new Player("Florian", "Grognak le barbare", CharacterType.DWARF, 100, new ArrayList<>());		
     	pl.currentHealthPoints = 10;
     	pl.healthPoints = 40;
     	UpdatePlayer.majPdvFinTour(pl);
@@ -66,7 +66,7 @@ public class UpdatePLayerTests {
     @Test
     @DisplayName("Test de maj de Fin de tour pour adventurer")
     void testFinTourAdventurer() {
-		Player pl = new Player("Florian", "Grognak le barbare", TypePersonnage.ADVENTURER, 100, new ArrayList<>());		
+		Player pl = new Player("Florian", "Grognak le barbare", CharacterType.ADVENTURER, 100, new ArrayList<>());		
     	pl.currentHealthPoints = 10;
     	pl.healthPoints = 40;
     	pl.inventory.add(new Item("Holy Elixir","A"));
@@ -78,7 +78,7 @@ public class UpdatePLayerTests {
     @Test
     @DisplayName("Test de maj de Fin de tour pour arcer avec arc magique")
     void testFinTourArcherMagicBow() {
-		Player pl = new Player("Florian", "Grognak le barbare", TypePersonnage.ARCHER, 100, new ArrayList<>());		
+		Player pl = new Player("Florian", "Grognak le barbare", CharacterType.ARCHER, 100, new ArrayList<>());		
     	pl.currentHealthPoints = 10;
     	pl.healthPoints = 40;
     	pl.inventory.add(new Item("Magic Bow","A"));
@@ -89,7 +89,7 @@ public class UpdatePLayerTests {
     @Test
     @DisplayName("Test de maj de Fin de tour pour archer sans arc magique")
     void testFinTourArcher() {
-		Player pl = new Player("Florian", "Grognak le barbare", TypePersonnage.ARCHER, 100, new ArrayList<>());		
+		Player pl = new Player("Florian", "Grognak le barbare", CharacterType.ARCHER, 100, new ArrayList<>());		
     	pl.currentHealthPoints = 10;
     	pl.healthPoints = 40;
     	UpdatePlayer.majPdvFinTour(pl);
@@ -99,7 +99,7 @@ public class UpdatePLayerTests {
     @Test
     @DisplayName("Test de maj de Fin de tour pour rétablir currenthealthpoints")
     void testFinTourTooManyHealth() {
-		Player pl = new Player("Florian", "Grognak le barbare", TypePersonnage.ARCHER, 100, new ArrayList<>());		
+		Player pl = new Player("Florian", "Grognak le barbare", CharacterType.ARCHER, 100, new ArrayList<>());		
     	pl.currentHealthPoints = 15;
     	pl.healthPoints = 10;
     	UpdatePlayer.majPdvFinTour(pl);
@@ -110,7 +110,7 @@ public class UpdatePLayerTests {
     @Test
     @DisplayName("Test de maj de Fin de tour lorsque vie == 0")
     void testFinTourHealth0() {
-		Player pl = new Player("Florian", "Grognak le barbare", TypePersonnage.ARCHER, 100, new ArrayList<>());		
+		Player pl = new Player("Florian", "Grognak le barbare", CharacterType.ARCHER, 100, new ArrayList<>());		
     	pl.currentHealthPoints = 0;
     	UpdatePlayer.majPdvFinTour(pl);
     	assertEquals(0,pl.currentHealthPoints);

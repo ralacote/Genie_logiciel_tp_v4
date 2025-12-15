@@ -6,7 +6,7 @@ import re.forestier.edu.rpg.UpdatePlayer;
 import re.forestier.edu.rpg.Player;
 import re.forestier.edu.rpg.Item;
 
-import re.forestier.edu.rpg.TypePersonnage;
+import re.forestier.edu.rpg.CharacterType;
 
 import java.util.ArrayList;
 
@@ -17,7 +17,7 @@ public class GlobalTest {
 
     @Test
     void testAffichageBase() {
-        Player player = new Player("Florian", "Gnognak le Barbare", TypePersonnage.ADVENTURER, 200, new ArrayList<>());
+        Player player = new Player("Florian", "Gnognak le Barbare", CharacterType.ADVENTURER, 200, new ArrayList<>());
     	UpdatePlayer.addXp(player,20);
     	//player.retrieveLevel();
     	Item i = new Item("Elendil","Et Paf");
@@ -31,7 +31,7 @@ public class GlobalTest {
     
     @Test
     void testAffichageMarkdown() {
-        Player player = new Player("Florian", "Gnognak le Barbare", TypePersonnage.ADVENTURER, 200, new ArrayList<>());
+        Player player = new Player("Florian", "Gnognak le Barbare", CharacterType.ADVENTURER, 200, new ArrayList<>());
     	UpdatePlayer.addXp(player,20);
     	Item i = new Item("Elendil","Et Paf");
     	

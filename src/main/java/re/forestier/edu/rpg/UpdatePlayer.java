@@ -21,7 +21,7 @@ public class UpdatePlayer {
             player.xp += xp;
             Random random = new Random();
             player.inventory.add(objectList[random.nextInt(objectList.length)]);
-            PersonnagesAbilites p = new PersonnagesAbilites();
+            CharachterAbilites p = new CharachterAbilites();
             HashMap<String, Integer> abilities = p.trouveCaracteristique(player.getAvatarClass(),player.retrieveLevel());
             
             abilities.forEach((ability, level) -> {
