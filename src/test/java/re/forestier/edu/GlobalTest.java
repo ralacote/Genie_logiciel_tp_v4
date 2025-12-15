@@ -28,5 +28,19 @@ public class GlobalTest {
 
         verify(Affichage.afficherJoueur(player));
     }
+    
+    @Test
+    void testAffichageMarkdown() {
+        Player player = new Player("Florian", "Gnognak le Barbare", TypePersonnage.ADVENTURER, 200, new ArrayList<>());
+    	UpdatePlayer.addXp(player,20);
+    	Item i = new Item("Elendil","Et Paf");
+    	
+    	player.inventory = new ArrayList<>();
+    	player.inventory.add(i);
+
+        verify(Affichage.afficherJoueurMarkdown(player));
+
+    }
+
 
 }

@@ -16,4 +16,8 @@ public class Affichage {
 
         return finalString[0];
     }
+
+	public static String afficherJoueurMarkdown(Player player) {
+		return null;
+	}
 }
