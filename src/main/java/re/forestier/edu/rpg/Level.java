@@ -3,16 +3,16 @@ package re.forestier.edu.rpg;
 import java.util.HashMap;
 
 public class Level {
-	public HashMap<String,Integer> caracteristiques;
-	public int numeroNiveau;
+	public HashMap<String,Integer> caracteristics;
+	public int levelNumber;
 	
-	public Level(int numeroNiveau) {
-		this.caracteristiques = new HashMap<>();
-		this.numeroNiveau = numeroNiveau;
+	public Level(int levelNumber) {
+		this.caracteristics = new HashMap<>();
+		this.levelNumber = levelNumber;
 	}
 	
-	public void AjouteNiveau(String s,int i) {
-		caracteristiques.put(s, i);
+	public void AjouteNiveau(String caracteristicName,int caracteristicNumber) {
+		caracteristics.put(caracteristicName, caracteristicNumber);
 	}
 
 }

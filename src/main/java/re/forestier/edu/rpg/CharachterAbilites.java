@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 public class CharachterAbilites {
-	public ArrayList<Character> lesPersonnages;
+	public ArrayList<Character> allCharacter;
 	
 	public CharachterAbilites() {
         Level n1 = new Level(1);
@@ -94,12 +94,12 @@ public class CharachterAbilites {
         Character goblin = new Character(CharacterType.GOBLIN, new ArrayList<Level>(Arrays.asList(g1,g2,g3,g4,g5)));
 
         
-        lesPersonnages = new ArrayList<>(Arrays.asList(adventurer,archer,dwarf,goblin));
+        allCharacter = new ArrayList<>(Arrays.asList(adventurer,archer,dwarf,goblin));
 	}
 	
-	public HashMap<String, Integer> trouveCaracteristique(CharacterType type,int level) {
+	public HashMap<String, Integer> findCaracteristics(CharacterType type,int level) {
 		
-		for (Character p : lesPersonnages) {
+		for (Character p : allCharacter) {
 			if(p.type == type) {
 				return p.trouveCaracteristique(level);
 			}

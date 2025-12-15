@@ -28,7 +28,7 @@ public class Player {
         this.money = money;
         this.inventory = inventory;
         CharachterAbilites p = new CharachterAbilites();
-        this.abilities = p.trouveCaracteristique(avatarClass,1);
+        this.abilities = p.findCaracteristics(avatarClass,1);
     }
     
     public float getMaximalWeight() {

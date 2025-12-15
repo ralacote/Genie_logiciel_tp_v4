@@ -1,7 +1,7 @@
 package re.forestier.edu;
 
 import org.junit.jupiter.api.Test;
-import re.forestier.edu.rpg.Affichage;
+import re.forestier.edu.rpg.Display;
 import re.forestier.edu.rpg.UpdatePlayer;
 import re.forestier.edu.rpg.Player;
 import re.forestier.edu.rpg.Item;
@@ -26,7 +26,7 @@ public class GlobalTest {
     	player.inventory = new ArrayList<>();
     	player.inventory.add(i);
 
-        verify(Affichage.afficherJoueur(player));
+        verify(Display.displayPlayerBasic(player));
     }
     
     @Test
@@ -38,7 +38,7 @@ public class GlobalTest {
     	player.inventory = new ArrayList<>();
     	player.inventory.add(i);
 
-        verify(Affichage.afficherJoueurMarkdown(player));
+        verify(Display.displayPlayerMarkdown(player));
 
     }
 

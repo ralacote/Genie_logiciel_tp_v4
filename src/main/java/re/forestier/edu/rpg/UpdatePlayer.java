@@ -22,7 +22,7 @@ public class UpdatePlayer {
             Random random = new Random();
             player.inventory.add(objectList[random.nextInt(objectList.length)]);
             CharachterAbilites p = new CharachterAbilites();
-            HashMap<String, Integer> abilities = p.trouveCaracteristique(player.getAvatarClass(),player.retrieveLevel());
+            HashMap<String, Integer> abilities = p.findCaracteristics(player.getAvatarClass(),player.retrieveLevel());
             
             abilities.forEach((ability, level) -> {
                 player.abilities.put(ability, abilities.get(ability));
